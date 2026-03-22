@@ -1,0 +1,534 @@
+Here is a complete, ready-to-run HTML document that creates a modern website with fully functional navigation buttons.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>digtal dreamers | Modern Interactive Website</title>
+    <!-- Google Fonts for clean typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (free icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(145deg, #f8fafc 0%, #eef2f9 100%);
+            color: #0a1e2f;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* === MODERN NAVIGATION BAR === */
+        .navbar {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.02);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 0.9rem 2rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo i {
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+            color: #2a5298;
+            font-size: 1.7rem;
+        }
+
+        /* navigation buttons container */
+        .nav-buttons {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        /* sleek button style */
+        .nav-btn {
+            background: transparent;
+            border: none;
+            padding: 0.6rem 1.4rem;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            color: #1e2f3e;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: -0.2px;
+        }
+
+        .nav-btn i {
+            font-size: 1rem;
+            transition: transform 0.2s;
+        }
+
+        .nav-btn:hover {
+            background: #e9edf2;
+            transform: translateY(-2px);
+        }
+
+        .nav-btn:active {
+            transform: translateY(1px);
+        }
+
+        /* active page indicator */
+        .nav-btn.active {
+            background: #1e3c72;
+            color: white;
+            box-shadow: 0 6px 14px rgba(30, 60, 114, 0.25);
+        }
+
+        .nav-btn.active i {
+            color: white;
+        }
+
+        /* === MAIN CONTENT PANELS === */
+        .pages-container {
+            max-width: 1280px;
+            margin: 2rem auto;
+            padding: 0 1.8rem 3rem;
+        }
+
+        .page {
+            display: none;
+            animation: fadeInUp 0.45s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+
+        .page.active-page {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* card & hero design */
+        .hero-card {
+            background: white;
+            border-radius: 2rem;
+            padding: 2.5rem;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.2s;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(2px);
+            border-radius: 2rem;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #0f2b3d, #1f4e79);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1e3a5f;
+        }
+
+        .lead-text {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 1.8rem;
+            border-left: 4px solid #2a5298;
+            padding-left: 1.2rem;
+        }
+
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            flex: 1 1 220px;
+            background: #f1f5f9;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .feature-item i {
+            font-size: 2.2rem;
+            color: #2a5298;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-item h3 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .btn-demo {
+            background: #1e3c72;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.6rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-demo:hover {
+            background: #0f2b4f;
+            transform: scale(0.98);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: #4a627a;
+        }
+
+        @media (max-width: 700px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .nav-buttons {
+                justify-content: center;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .hero-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <i class="fas fa-"></i> 
+            <span>Cyber Security</span>
+        </div>
+        <div class="nav-buttons" id="navButtonsContainer">
+            <!-- Navigation buttons: data-page targets the page id -->
+            <button class="nav-btn active" data-page="home"><i class="fas fa-home"></i> Home</button>
+            <button class="nav-btn" data-page="services"><i class="fas fa-cogs"></i> Services</button>
+            <button class="nav-btn" data-page="about"><i class="fas fa-users"></i> About</button>
+            <button class="nav-btn" data-page="contact"><i class="fas fa-envelope"></i> Contact</button>
+        </div>
+    </div>
+</nav>
+
+<div class="pages-container">
+    <!-- HOME PAGE -->
+    <div id="home" class="page active-page">
+        <div class="hero-heart">
+            <h1><i class="fas fa-rocket" style="color:#2a5298; margin-right: 12px;"></i> Hello your journey starts here with us</h1>
+            <p class="lead-text">Crafting digital experiences with elegance and speed. Your journey starts here.</p>
+            <p style="margin-bottom: 1.2rem; font-size:1.05rem">Explore dynamic pages, smooth navigation, and a fully interactive interface. Our buttons preserve state and give you seamless transitions.</p>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Confidentiality</h3>
+                    <p>protect information for the user</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-palette"></i>
+                    <h3>integrity</h3>
+                    <p>data remains accurate using digital signatures</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Authenticity&Non-Repudiation</h3>
+                    <p>verifying user identity</p>
+                </div>
+            </div>
+            <button class="btn-demo" id="demoExploreBtn"><i class="fas fa-arrow-right"></i> NEXT →</button>
+        </div>
+    </div>
+
+    <!-- SERVICES PAGE -->
+    <div id="services" class="page">
+        <div class="">
+            <h2><i class="fas fa-cogs"></i> The main services</h2>
+            <p class="lead-text">Protection starts here with us.</p>
+            <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1rem;">
+                <div style="background:#f8fafc; border-radius: 1.2rem; padding: 1.2rem;">
+                    <i class="fas fa-code" style="font-size: 1.8rem; color:#1e3c72; margin-right: 12px;"></i>
+                    <strong>Managed Detection and Response</strong> —Monitoring of endpoints,network,and cloud environments to detect and neutralize threats .
+                </div>
+                <div style="background:#f8fafc; border-radius: 1.2rem; padding: 1.2rem;">
+                    <i class="fas fa-chart-line" style="font-size: 1.8rem; color:#1e3c72; margin-right: 12px;"></i>
+                    <strong>Digital </strong> — Data-driven strategies to boost your online presence.
+                </div>
+                <div style="background:#f8fafc; border-radius: 1.2rem; padding: 1.2rem;">
+                    <i class="fas fa-cloud-upload-alt" style="font-size: 1.8rem; color:#1e3c72; margin-right: 12px;"></i>
+                    <strong>Backup solution</strong> —Monitoring of endpoints,network,and cloud environments to detect and neutralize threats.
+                </div>
+            </div>
+            <div style="margin-top: 2rem; background:#eef2ff; border-radius: 1rem; padding: 1rem; text-align: center;">
+                <i class="fas fa-headset"></i> 24/7 protection -Trust us forget about hacks. .
+            </div>
+        </div>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about" class="page">
+        <div class="heart">
+            <h2><i class="fas fa-users"></i> Cyber Security</h2>
+            <p class="lead-text">We are a collective of designers, engineers, and dreamers.</p>
+            <p style="margin-bottom: 1rem;">2026 digital dreamers</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin: 1.5rem 0;">
+                <span style="background:#e2e8f0; padding: 0.3rem 1rem; border-radius: 40px;"><i class="fas fa-check-circle"></i> 100% client satisfaction</span>
+                <span style="background:#e2e8f0; padding: 0.3rem 1rem; border-radius: 40px;"><i class="fas fa-building"></i> private corporation</span>
+                <span style="background:#e2e8f0; padding: 0.3rem 1rem; border-radius: 40px;"><i class="fas fa-location icon"></i> Global reach</span>
+            </div>
+            <button class="btn-demo" id="contactFromAboutBtn"><i class="fas fa-whatsapp"></i> next →</button>
+        </div>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page">
+        <div class=">
+            <h2><i class="fas fa-envelope-open-text"></i> Let's talk</h2>
+            <p class="lead-text">What we can do for you? we'd love to help you.</p>
+            <form id="contactForm" style="display: flex; flex-direction: column; gap: 1.2rem; max-width: 550px; margin-top: 1rem;">
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <input type="text" placeholder="Your name" style="flex:1; padding: 0.9rem; border-radius: 60px; border: 1px solid #cbd5e1; font-family: inherit; outline: none; transition:0.2s;" required>
+                    <input type="email" placeholder="Email address" style="flex:1; padding: 0.9rem; border-radius: 60px; border: 1px solid #cbd5e1; font-family: inherit; outline: none;" required>
+                </div>
+                <textarea rows="3" placeholder="Tell us about your vision..." style="padding: 0.9rem; border-radius: 1.5rem; border: 1px solid #cbd5e1; font-family: inherit; resize: vertical;"></textarea>
+                <button type="submit" style="background:#1e3c72; color:white; border:none; padding: 0.8rem; border-radius: 60px; font-weight: bold; cursor: pointer; width: 180px; transition:0.2s;"><i class="fas fa-paper-plane"></i> Send message</button>
+                <div id="formFeedback" style="font-size:0.85rem; color:#2e7d32; margin-top: 6px;"></div>
+            </form>
+            <div style="margin-top: 2rem; display: flex; gap: 1.5rem;">
+                <span><i class="fas fa-phone-alt"></i> 0798944890</span>
+                <span><i class="fas fa-map-marker-alt"></i> kimberly</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 digital dreamers-change lives</p>
+</footer>
+
+<script>
+    (function() {
+        // ---- DOM elements ----
+        const pages = document.querySelectorAll('.page');
+        const navBtns = document.querySelectorAll('.nav-btn');
+        
+        // Helper: switch active page and update active button style
+        function switchToPage(pageId) {
+            // 1. Hide all pages, remove active-page class
+            pages.forEach(page => {
+                page.classList.remove('active-page');
+            });
+            // 2. Show target page
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active-page');
+            } else {
+                console.warn(`Page with id "${pageId}" not found`);
+                return;
+            }
+            
+            // 3. Update button active styles
+            navBtns.forEach(btn => {
+                const btnPage = btn.getAttribute('data-page');
+                if (btnPage === pageId) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            // 4. Smooth scroll to top after content change (optional but improves UX)
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            
+            // 5. Update URL hash without causing jump? We'll use history for better navigation
+            //    But we avoid triggering another navigation cycle.
+            if (window.location.hash !== `#${pageId}`) {
+                history.pushState(null, '', `#${pageId}`);
+            }
+        }
+        
+        // event listeners for navigation buttons
+        navBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const pageId = btn.getAttribute('data-page');
+                if (pageId) {
+                    switchToPage(pageId);
+                }
+            });
+        });
+        
+        // Handle browser back/forward (popstate)
+        window.addEventListener('popstate', () => {
+            let hash = window.location.hash.slice(1); // remove '#'
+            const validPages = ['home', 'services', 'about', 'contact'];
+            if (hash && validPages.includes(hash)) {
+                switchToPage(hash);
+            } else if (!hash || hash === '') {
+                // default to home if hash is empty or invalid
+                switchToPage('home');
+            } else {
+                // invalid hash, fallback to home
+                switchToPage('home');
+            }
+        });
+        
+        // initial page load: check URL hash or default to home
+        function initFromHash() {
+            let initialPage = 'home';
+            const hash = window.location.hash.slice(1);
+            if (hash && ['home', 'services', 'about', 'contact'].includes(hash)) {
+                initialPage = hash;
+            }
+            switchToPage(initialPage);
+        }
+        
+        initFromHash();
+        
+        // EXTRA INTERACTIVITY: Demo explore button on home page navigates to Services
+        const demoExplore = document.getElementById('demoExploreBtn');
+        if (demoExplore) {
+            demoExplore.addEventListener('click', () => {
+                switchToPage('services');
+            });
+        }
+        
+        // Contact from about button
+        const contactFromAbout = document.getElementById('contactFromAboutBtn');
+        if (contactFromAbout) {
+            contactFromAbout.addEventListener('click', () => {
+                switchToPage('contact');
+            });
+        }
+        
+        // Contact form submission simulation (demo feedback)
+        const contactForm = document.getElementById('contactForm');
+        const feedbackDiv = document.getElementById('formFeedback');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // gather fields for a little demo message
+                const nameInput = contactForm.querySelector('input[type="text"]');
+                const emailInput = contactForm.querySelector('input[type="email"]');
+                const msgArea = contactForm.querySelector('textarea');
+                const nameVal = nameInput ? nameInput.value.trim() : '';
+                const emailVal = emailInput ? emailInput.value.trim() : '';
+                const msgVal = msgArea ? msgArea.value.trim() : '';
+                
+                if (!nameVal || !emailVal) {
+                    feedbackDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please fill name and email.';
+                    feedbackDiv.style.color = '#c62828';
+                    setTimeout(() => {
+                        if(feedbackDiv) feedbackDiv.innerHTML = '';
+                    }, 2500);
+                    return;
+                }
+                
+                // simple email regex check
+                const emailPattern = /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/;
+                if (!emailPattern.test(emailVal)) {
+                    feedbackDiv.innerHTML = '<i class="fas fa-envelope-open-text"></i> Please enter a valid email address.';
+                    feedbackDiv.style.color = '#c62828';
+                    setTimeout(() => {
+                        if(feedbackDiv) feedbackDiv.innerHTML = '';
+                    }, 2500);
+                    return;
+                }
+                
+                feedbackDiv.innerHTML = `<i class="fas fa-check-circle"></i> Thanks ${nameVal}, we’ll reach out soon!`;
+                feedbackDiv.style.color = '#1e3c72';
+                contactForm.reset();
+                setTimeout(() => {
+                    if(feedbackDiv) feedbackDiv.innerHTML = '';
+                }, 3000);
+            });
+        }
+        
+        // optional: add ripple or any hover effect consistency
+        const allBtns = document.querySelectorAll('.nav-btn, .btn-demo');
+        allBtns.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                // just a micro-interaction, no extra logic
+            });
+        });
+        
+        // For extra smoothness, we also manage keyboard / accessibility: 
+        // allow focusing with tab and Enter triggers navigation (already buttons)
+        // Additionally we can watch if any external link wants to trigger page navigation.
+        console.log("✅ Website ready — fully functional navigation buttons with history & smooth UI");
+    })();
+</script>
+</body>
+</html>
+```
